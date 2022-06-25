@@ -1,0 +1,96 @@
+A 1 5 A 2 10 D 1 15 A 3 20 A 4 25 D 2 35
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+int a[4] = {4, 9, 16, 25};
+int cnt = 3;
+int main()
+{ 
+    // for (int mon = 1; mon <= 12;mon++){
+    //     if(mon==1||mon==3||mon==5||mon==7||mon==8||mon==10||mon==12){
+    //         for (int day = 1; day <= 31;day++){
+    //             int x = 0;
+    //             while(mon!=0){
+    //                 x += mon % 10;
+    //                 mon /= 10;
+    //             }
+    //             while(day!=0){
+    //                 x += day % 10;
+    //                 day /= 10;
+    //             }
+    //             for (int i = 0; i <= 3;i++){
+    //                 if(a[i]==day)
+    //                     cnt++;
+    //             }
+    //         }
+    //     }
+    //     else if(mon==4||mon==6||mon==9||mon==11){
+    //         for (int day = 1; day <= 30;day++){
+    //             int x = 0;
+    //             while (mon != 0)
+    //             {
+    //                 x += mon % 10;
+    //                 mon /= 10;
+    //             }
+    //             while (day != 0)
+    //             {
+    //                 x += day % 10;
+    //                 day /= 10;
+    //             }
+    //             for (int i = 0; i <= 3; i++)
+    //             {
+    //                 if (a[i] == day)
+    //                     cnt++;
+    //             }
+    //         }
+    //     }
+    //     else{
+    //         for (int day = 1; day <= 28;day++){
+    //             int x = 0;
+    //             while (mon != 0)
+    //             {
+    //                 x += mon % 10;
+    //                 mon /= 10;
+    //             }
+    //             while (day != 0)
+    //             {
+    //                 x += day % 10;
+    //                 day /= 10;
+    //             }
+    //             for (int i = 0; i <= 3; i++)
+    //             {
+    //                 if (a[i] == day)
+    //                     cnt++;
+    //             }
+    //         }
+    //     }
+    // }
+    int mon = 1;
+    for (int day = 1; day <= 31; day++)
+    {
+        if(mon<10){
+            cnt += mon;
+        }
+        else if(mon==10)
+            cnt += 1;
+        else if(mon==11)
+            cnt += 2;
+        else
+            cnt += 3;
+        int n = day;
+        while (n != 0)
+        {
+            cnt += n % 10;
+            n /= 10;
+        }
+        for (int i = 0; i <= 3; i++)
+        {
+            if (a[i] == cnt)
+            {
+                cnt++;
+                break;
+                }
+        }
+        cout << cnt;
+    }
+}
